@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="frontend/fragments/header :: header" />
+
+<body>
+	        
+	<div th:replace="frontend/fragments/navigation :: header" />
+	<div class="container-fluid">
+		<div class="row">
+			<div th:replace="frontend/fragments/navigation :: sidebars" />
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div
+					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">Blogs</h1>
+				</div>
+			 </br>      
+				 <a type="button" class="btn btn-primary" href="/new_blog">Nuevo</a> 
+			 </br>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Title</th>
+							<th scope="col">Description</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="blog: ${blogs}">
+							<td th:text="${blog.idBlog}" />
+							<td th:text="${blog.title}" />
+							<td th:text="${blog.description}" />
+							<td><a type="button" class="btn btn-primary"
+								th:href="@{/edit_blog/{id}(id=${blog.idBlog})}">Edit </a>   <a
+								type="button" class="btn btn-primary"
+								th:href="@{/delete_blog/{id}(id=${blog.idBlog})}">Delete <i
+									class="bi bi-trash"></i>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+				     
+			</main>
+		</div>
+	</div>
+	<div th:replace="frontend/fragments/footer :: footer">
+</body>
+
+</html>
+  

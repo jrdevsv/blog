@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="frontend/fragments/header :: header" />
+
+<body>
+	        
+	<div th:replace="frontend/fragments/navigation :: header" />
+	<div class="container-fluid">
+		<div class="row">
+			<div th:replace="frontend/fragments/navigation :: sidebars" />
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div
+					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">Readers</h1>
+				</div>
+				</br>       
+				<a type="button" class="btn btn-primary" href="/new_reader">Nuevo</a>
+				</br>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Name</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="reader: ${readers}">
+							<td th:text="${reader.idReader}" />
+							<td th:text="${reader.name}" />  
+							<td><a type="button" class="btn btn-primary"
+								th:href="@{/edit_reader/{id}(id=${reader.idReader})}">Edit</a>  
+								<a type="button" class="btn btn-primary"
+								th:href="@{/delete/{id}(id=${reader.idReader})}">Delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+				       
+			</main>
+		</div>
+	</div>
+	<div th:replace="frontend/fragments/footer :: footer">
+</body>
+
+</html>
+  

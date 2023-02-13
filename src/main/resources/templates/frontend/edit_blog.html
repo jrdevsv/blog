@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="frontend/fragments/header :: header" />
+
+<body>
+	        
+	<div th:replace="frontend/fragments/navigation :: header" />
+	<div class="container-fluid">
+		<div class="row">
+			<div th:replace="frontend/fragments/navigation :: sidebars" />
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div
+					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">Edit Reader</h1>
+				</div>
+
+				<form method="POST" class="form-signin" th:object="${blogForm}"
+					th:action="@{/update_blog}"  th:each="b : ${blog}">
+
+					<div class="form-group">
+						<label for="idBlog" class="form-label">ID </label> 
+						<input name="idBlog" type="text" class="form-control" id="idBlog"
+							th:value="${b.idBlog}" readonly> 
+							
+					 <label for="title" class="form-label">Title </label> 
+						<input name="title" type="text" class="form-control" id="title"
+							th:value="${b.title}" maxlength=50> 
+							
+							
+							<label for="description" class="form-label">Description </label> 
+							<input name="description" type="text"
+							class="form-control" id="description" th:value="${b.description}"
+							placeholder="Description" maxlength=4000>
+							
+							
+					</div>
+
+					   
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Guardar</button>
+				</form>
+				             
+			</main>
+		</div>
+	</div>
+	<div th:replace="frontend/fragments/footer :: footer">
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="frontend/fragments/header :: header" />
+
+<body>
+	        
+	<div th:replace="frontend/fragments/navigation :: header" />
+	<div class="container-fluid">
+		<div class="row">
+			<div th:replace="frontend/fragments/navigation :: sidebars" />
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div
+					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">Readers por Blogs</h1>
+				</div>
+				            
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button"
+						id="dropdownMenuButton" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Dropdown
+						button</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a> <a
+							class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+	<div th:replace="frontend/fragments/footer :: footer">
+</body>
+
+</html>
+  
