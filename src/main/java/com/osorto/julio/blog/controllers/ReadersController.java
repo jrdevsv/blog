@@ -85,7 +85,7 @@ public class ReadersController {
 	public ResponseEntity<List<Readers>> listar(@RequestHeader String token) throws Exception {
 
 		if (!validate(token)) {
-			throw new ModeloNotFoundException("Token invalido"); 
+			throw new ModeloNotFoundException("Token invalido");
 		}
 
 		List<Readers> lista = service.findAll();
@@ -112,17 +112,11 @@ public class ReadersController {
 	}
 
 	public boolean validate(String token) {
-
 		User u = userService.findByUsername(getUsername(token));
-
 		if (u == null || u.getUsername() == null || u.getUsername().isBlank()) {
 			return false;
 		}
-
-		if (getUsername(token) != null && u.getUsername() == getUsername(token) && isExpired(token)) {
-			return true;
-		}
-		return false;
+		return u.getUsername().equals(getUsername(token)) && this.isExpired(token);
 	}
 
 	private Claims getClaims(String token) {
