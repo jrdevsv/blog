@@ -1,8 +1,6 @@
 package com.osorto.julio.blog.entities;
 
 import java.io.Serializable;
-import java.util.Set;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;

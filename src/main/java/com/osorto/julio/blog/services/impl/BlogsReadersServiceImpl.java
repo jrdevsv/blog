@@ -5,12 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.osorto.julio.blog.entities.Blogs;
 import com.osorto.julio.blog.entities.BlogsReaders;
 import com.osorto.julio.blog.repositories.BlogsReadersRepository;
-import com.osorto.julio.blog.repositories.BlogsRepository;
 import com.osorto.julio.blog.services.BlogsReadersService;
-import com.osorto.julio.blog.services.BlogsService;
 
 @Service
 public class BlogsReadersServiceImpl implements BlogsReadersService {

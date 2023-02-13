@@ -33,16 +33,11 @@ public class UserController {
 	}
 
 	@PostMapping("/registration")
-	public String registration(@ModelAttribute("userForm") User userForm) {
+	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
 
-		/*if (bindingResult.hasErrors()) {
+		if (bindingResult.hasErrors()) {
 			return "frontend/registration";
-		}*/
-
-		userForm.setEmail("luis@yopmail.com");
-		userForm.setFirstName("test1");
-		userForm.setLastName("test2");
-		
+		}
 		
 		userService.save(userForm);
 		
@@ -57,10 +52,6 @@ public class UserController {
 			return "redirect:/";
 		}
 
-//		if (error != null)
-//			model.addAttribute("error", "Your username and password is invalid.");
-//		if (logout != null)
-//			model.addAttribute("message", "You have been logged out successfully.");
 		return "frontend/login";
 	}
 
