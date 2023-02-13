@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.osorto.julio.blog.entities.Readers;
 import com.osorto.julio.blog.entities.User;
+import com.osorto.julio.blog.exception.ModeloNotFoundException;
 import com.osorto.julio.blog.services.ReadersService;
 import com.osorto.julio.blog.services.UserService;
 
@@ -84,7 +85,7 @@ public class ReadersController {
 	public ResponseEntity<List<Readers>> listar(@RequestHeader String token) throws Exception {
 
 		if (!validate(token)) {
-			new ResponseEntity<String>("Token no valido", HttpStatusCode.valueOf(401));
+			throw new ModeloNotFoundException("Token invalido"); 
 		}
 
 		List<Readers> lista = service.findAll();
